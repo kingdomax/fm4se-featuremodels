@@ -22,5 +22,4 @@ public class FeatureModel {
   public void addConstraint(CrossTreeConstraint crossTreeConstraint) {
     constraints.add(crossTreeConstraint);    
   }
-
 }

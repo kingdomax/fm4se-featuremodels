@@ -43,5 +43,4 @@ public class CrossTreeConstraint {
   public void setKind(Kind kind) {
     this.kind = kind;
   }
-
 }

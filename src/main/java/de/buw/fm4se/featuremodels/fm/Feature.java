@@ -56,6 +56,4 @@ public class Feature {
   public void setChildGroupKind(GroupKind childGroupKind) {
     this.childGroupKind = childGroupKind;
   }
-
-
 }

@@ -44,5 +44,4 @@ public class FeatureModelAnalyzer {
 
     return mandatoryFeatures;
   }
-
 }
