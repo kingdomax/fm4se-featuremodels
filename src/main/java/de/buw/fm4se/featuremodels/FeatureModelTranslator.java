@@ -111,7 +111,7 @@ public class FeatureModelTranslator {
 		String limbooleFormula = formulas.stream()
 																			.map(x -> "(" + x + ")")
 																			.collect(Collectors.joining(" & \n"));
-		System.out.println(limbooleFormula);
+		System.out.println("limbooleFormula: " + limbooleFormula);
 		return limbooleFormula;
 	}
 }

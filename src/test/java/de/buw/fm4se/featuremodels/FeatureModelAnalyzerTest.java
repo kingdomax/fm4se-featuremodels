@@ -3,14 +3,13 @@ package de.buw.fm4se.featuremodels;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
-
+import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
-
 import de.buw.fm4se.featuremodels.fm.FeatureModel;
 
 class FeatureModelAnalyzerTest {
 
-  @Test
+ @Test
   void testCheckConsistentCarFM() {
     assertTrue(FeatureModelAnalyzer.checkConsistent(ExampleFmCreator.getSimpleFm()));
   }
@@ -36,6 +35,16 @@ class FeatureModelAnalyzerTest {
     
     assertFalse(deadFeatures.contains(fm.getRoot().getName()));
   }
- 
 
+  @Test
+  void testCheckMandatoryFeaturesCarFM() {
+    List<String> expected = new ArrayList<String>() {{
+      add("car");
+      add("motor");
+    }};
+
+    List<String> actual = FeatureModelAnalyzer.mandatoryFeatureNames(ExampleFmCreator.getSimpleFm());
+    
+    assertEquals(expected, actual);
+  }
 }
