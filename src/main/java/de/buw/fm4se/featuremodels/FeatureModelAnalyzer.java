@@ -36,12 +36,11 @@ public class FeatureModelAnalyzer {
 	// 1 check
 	// ==> "& feature" = unsatisfiable
   public static List<String> deadFeatureNames(FeatureModel fm) {
-		var allFeatures = getAllChildren(fm.getRoot());
 		String formula = FeatureModelTranslator.translateToFormula(fm);
 
-		List<String> deadFeatures = allFeatures.stream()
-																						.filter(f -> !checkSatisfiability(formula + " & " + f))
-																						.collect(Collectors.toList());
+		List<String> deadFeatures = getAllChildren(fm.getRoot()).stream()
+																														.filter(f -> !checkSatisfiability(formula + " & " + f))
+																														.collect(Collectors.toList());
 
 		System.out.println("deadFeatures: " + deadFeatures);
     return deadFeatures;
@@ -51,13 +50,11 @@ public class FeatureModelAnalyzer {
 	// ==> "& feature" = satisfy
 	// ==> "& !feature" = unsatisfiable
   public static List<String> mandatoryFeatureNames(FeatureModel fm) {
-		var allFeatures = getAllChildren(fm.getRoot());
 		String formula = FeatureModelTranslator.translateToFormula(fm);
 
-		List<String> firstCheck = allFeatures.stream()
-																						.filter(f -> checkSatisfiability(formula + " & " + f))
-																						.collect(Collectors.toList());
-
+		List<String> firstCheck = getAllChildren(fm.getRoot()).stream()
+																													.filter(f -> checkSatisfiability(formula + " & " + f))
+																													.collect(Collectors.toList());
 		List<String> secondCheck = firstCheck.stream()
 																					.filter(f -> !checkSatisfiability(formula + " & !" + f))
 																					.collect(Collectors.toList());

@@ -24,9 +24,7 @@ public class FeatureModelTranslator {
 		return combineFormula(formulas);
 	}
 
-	private static String root(FeatureModel fm) {
-		return fm.getRoot().getName();
-	}
+	private static String root(FeatureModel fm) { return fm.getRoot().getName(); }
 
 	// e.g. feature -> parent
 	private static List<String> parentRelation(Feature parent) {
